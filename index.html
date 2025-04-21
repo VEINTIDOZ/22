@@ -86,16 +86,19 @@
     let index = 0;
 
     function typeTitle() {
-      if (index < title.length) {
-        document.title += title.charAt(index);  // Añade una letra al título
-        index++;
-      } else {
-        setTimeout(() => {
-          document.title = "";  // Borra el título
-          index = 0;  // Resetea el índice para escribir de nuevo
-          setTimeout(typeTitle, 500);  // Vuelve a empezar el proceso
-        }, 1000);  // Espera 1 segundo antes de borrar el título
+      // Borra el título después de un segundo
+      if (index === title.length) {
+        document.title = "";  // Borra el título
+        index = 0;  // Resetea el índice
       }
+
+      // Escribe el título caracter por caracter
+      if (index < title.length) {
+        document.title += title.charAt(index);
+        index++;
+      }
+
+      setTimeout(typeTitle, 150);  // Ajusta la velocidad de escritura
     }
 
     // Inicia el efecto de escritura
