@@ -35,17 +35,19 @@
       justify-content: center;
     }
 
-    a {
+    a, button {
       color: #ccc;
       text-decoration: none;
       font-weight: bold;
       border: 1px solid #ccc;
       padding: 8px 16px;
       border-radius: 5px;
+      background: none;
       transition: 0.3s;
+      cursor: pointer;
     }
 
-    a:hover {
+    a:hover, button:hover {
       background: #ccc;
       color: #000;
     }
@@ -61,7 +63,23 @@
   <div class="links">
     <a href="https://www.instagram.com/luno.022/#" target="_blank">Instagram</a>
     <a href="https://youtube.com/@VEINTIDOZ22" target="_blank">YouTube</a>
-    <a href="#" onclick="alert('veintidoz'); return false;">Discord</a>
+    <button id="discordBtn" onclick="copiarDiscord()">💬 Copiar Discord</button>
   </div>
+
+  <script>
+    function copiarDiscord() {
+      const discord = "veintidoz";
+      const btn = document.getElementById("discordBtn");
+
+      navigator.clipboard.writeText(discord).then(() => {
+        btn.innerText = "✅ ¡Copiado!";
+        setTimeout(() => {
+          btn.innerText = "💬 Copiar Discord";
+        }, 2000);
+      }).catch(() => {
+        alert("Hubo un error al copiar.");
+      });
+    }
+  </script>
 </body>
 </html>
