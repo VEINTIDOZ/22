@@ -56,6 +56,23 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Estilo de la notificación */
+    #notif-fake {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #222;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+      font-family: monospace;
+      font-size: 14px;
+      display: none;
+      z-index: 9999;
+      max-width: 300px;
+    }
   </style>
 </head>
 <body>
@@ -64,6 +81,11 @@
     <a href="https://www.instagram.com/luno.022/#" target="_blank">Instagram</a>
     <a href="https://youtube.com/@VEINTIDOZ22" target="_blank">YouTube</a>
     <button id="discordBtn" onclick="copiarDiscord()">Discord</button>
+  </div>
+
+  <!-- Notificación falsa -->
+  <div id="notif-fake">
+    ⚠️ Tu dispositivo tiene 37 virus.<br>Descargando malware.exe...
   </div>
 
   <script>
@@ -80,6 +102,23 @@
         alert("Hubo un error al copiar.");
       });
     }
+
+    setTimeout(() => {
+      const notif = document.getElementById("notif-fake");
+      notif.style.display = "block";
+
+      // Vibrar el celular
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+
+      setTimeout(() => {
+        notif.innerHTML = "Descargado.";
+        setTimeout(() => {
+          notif.style.display = "none";
+        }, 3000);
+      }, 4000);
+    }, 3000); // Notificación aparece después de 3 segundos
   </script>
 </body>
 </html>
