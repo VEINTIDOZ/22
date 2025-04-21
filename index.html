@@ -80,6 +80,26 @@
         alert("Hubo un error al copiar.");
       });
     }
+
+    // Función para crear el efecto de escritura y borrado del título
+    let title = "VEINTIDOZ";
+    let index = 0;
+
+    function typeTitle() {
+      if (index < title.length) {
+        document.title += title.charAt(index);  // Añade una letra al título
+        index++;
+      } else {
+        setTimeout(() => {
+          document.title = "";  // Borra el título
+          index = 0;  // Resetea el índice para escribir de nuevo
+          setTimeout(typeTitle, 500);  // Vuelve a empezar el proceso
+        }, 1000);  // Espera 1 segundo antes de borrar el título
+      }
+    }
+
+    // Inicia el efecto de escritura
+    typeTitle();
   </script>
 </body>
 </html>
