@@ -5,103 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>22</title>
   <style>
-    body {
-      background: #000;
-      color: #ccc;
-      font-family: monospace;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+    body{
+      background:#000;
+      color:#ccc;
+      font-family:monospace;
+      text-align:center;
+      margin:0;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      overflow:hidden;
     }
-
-    h1 {
-      font-size: 2.8em;
-      margin: 0;
-      animation: fadeIn 2s ease-in-out forwards;
+    h1{font-size:2.8em;margin:0;animation:fadeIn 2s ease-in-out forwards;}
+    .links{
+      margin-top:20px;
+      display:flex;
+      gap:20px;
+      animation:fadeIn 3s ease-in-out forwards;
+      flex-wrap:wrap;
+      justify-content:center;
     }
-
-    .links {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
-      animation: fadeIn 3s ease-in-out forwards;
-      flex-wrap: wrap;
-      justify-content: center;
+    a,button{
+      color:#ccc;
+      text-decoration:none;
+      font-weight:bold;
+      border:1px solid #ccc;
+      padding:8px 16px;
+      border-radius:5px;
+      background:none;
+      transition:.3s;
+      cursor:pointer;
     }
-
-    a, button {
-      color: #ccc;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #ccc;
-      padding: 8px 16px;
-      border-radius: 5px;
-      background: none;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    a:hover, button:hover {
-      background: #ccc;
-      color: #000;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    a:hover,button:hover{background:#ccc;color:#000;}
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
     }
   </style>
 </head>
 <body>
   <h1>VEINTIDOZ</h1>
+
   <div class="links">
     <a href="https://www.instagram.com/luno.022/#" target="_blank">Instagram</a>
     <a href="https://youtube.com/@VEINTIDOZ22" target="_blank">YouTube</a>
+    <a href="https://github.com/VEINTIDOZ" target="_blank">GitHub</a> 
     <button id="discordBtn" onclick="copiarDiscord()">Discord</button>
   </div>
 
   <script>
-    function copiarDiscord() {
-      const discord = "veintidoz";
-      const btn = document.getElementById("discordBtn");
-
-      navigator.clipboard.writeText(discord).then(() => {
-        btn.innerText = "✅ ¡Copiado!";
-        setTimeout(() => {
-          btn.innerText = "Discord";
-        }, 2000);
-      }).catch(() => {
-        alert("Hubo un error al copiar.");
-      });
+    function copiarDiscord(){
+      const discord="veintidoz";
+      const btn=document.getElementById("discordBtn");
+      navigator.clipboard.writeText(discord).then(()=>{
+        btn.innerText="✅ ¡Copiado!";
+        setTimeout(()=>{btn.innerText="Discord";},2000);
+      }).catch(()=>{alert("Hubo un error al copiar.");});
     }
 
-    // Función para crear el efecto de escritura y borrado del título
-    let title = "VEINTIDOZ";
-    let index = 0;
-
-    function typeTitle() {
-      // Borra el título después de un segundo
-      if (index === title.length) {
-        document.title = "";  // Borra el título
-        index = 0;  // Resetea el índice
-      }
-
-      // Escribe el título caracter por caracter
-      if (index < title.length) {
-        document.title += title.charAt(index);
-        index++;
-      }
-
-      setTimeout(typeTitle, 150);  // Ajusta la velocidad de escritura
+    let title="VEINTIDOZ",index=0;
+    function typeTitle(){
+      if(index===title.length){document.title="";index=0;}
+      if(index<title.length){document.title+=title.charAt(index);index++;}
+      setTimeout(typeTitle,150);
     }
-
-    // Inicia el efecto de escritura
     typeTitle();
   </script>
 </body>
