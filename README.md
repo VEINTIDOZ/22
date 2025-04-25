@@ -1,7 +1,7 @@
 # 22's Secret Page
 
-**Este sitio es un repositorio oculto, dobde almacenan los rastros digitales de 22.**  
-Hace poco, **22** perdió su página original... ¿qué ocurrió? Temitas...  
+**Este sitio es un repositorio oculto, donde almacenan los rastros digitales de 22.**  
+Hace poco, **22** perdi mi página original... ¿qué ocurrió? Temitas...  
 Pero este es solo el principio. Algo mucho más grande está por venir.
 
 **🌐 ¿Qué contiene este sitio?**
